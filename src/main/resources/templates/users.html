@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All users</title>
+</head>
+<body>
+
+<h2>All users</h2>
+<br>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Email</th>
+        <th>Operations</th>
+    </tr>
+    <tr th:each="us : ${users}">
+        <td th:text="${us.id}"></td>
+        <td th:text="${us.name}"></td>
+        <td th:text="${us.surname}"></td>
+        <td th:text="${us.email}"></td>
+        <td>
+            <a th:href="@{/updateInfo(id=${us.id})}" class="btn btn-primary">Update</a>
+            <a th:href="@{/deleteUser(id=${us.id})}" class="btn btn-danger">Delete</a>
+        </td>
+    </tr>
+</table>
+<br>
+<a th:href="@{/addUser}" class="btn btn-danger">Add user</a>
+
+</body>
+</html>
