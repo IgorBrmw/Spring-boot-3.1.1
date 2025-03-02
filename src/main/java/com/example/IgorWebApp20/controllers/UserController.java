@@ -2,7 +2,7 @@ package com.example.IgorWebApp20.controllers;
 
 
 import com.example.IgorWebApp20.model.User;
-import com.example.IgorWebApp20.service.UserService;
+import com.example.IgorWebApp20.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,8 +16,13 @@ import java.util.List;
 @Controller
 public class UserController {
 
+
+    private UserServiceImpl userService;
+
     @Autowired
-    private UserService userService;
+    public UserController(UserServiceImpl userService) {
+        this.userService = userService;
+    }
 
     @GetMapping("/")
     public String listUsers(Model model) {
